@@ -11,7 +11,7 @@ import renderError from "./Error.js";
 import renderSpinner from "./Spinner.js";
 import renderJobList from "./JobList.js";
 
-// SEARCH COMPONENT
+// SEARCH COMPONENT //
 const submitHandler = async (event) => {
   event.preventDefault();
   const searchText = searchInputEl.value;
