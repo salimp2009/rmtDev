@@ -31,11 +31,11 @@ const submitHandler = async (event) => {
 
   try {
     const data = await getData(`${BASE_API_URL}/jobs?search=${searchText}`);
-    const { jobItems: jobItem } = data;
-    state.searchJobItems = jobItem;
+    const { jobItems } = data;
+    state.searchJobItems = jobItems;
     renderSpinner("search");
-    numberEl.textContent = jobItem.length;
-    renderJobList(jobItem);
+    numberEl.textContent = jobItems.length;
+    renderJobList();
   } catch (error) {
     renderSpinner("search");
     renderError(error.message);
