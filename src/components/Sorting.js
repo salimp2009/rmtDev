@@ -18,7 +18,9 @@ const clickHandler = (event) => {
       return current.daysAgo - next.daysAgo;
     });
   } else {
-    return next.relevanceScore - current.relevanceScore;
+    state.searchJobItems.sort((current, next) => {
+      return next.relevanceScore - current.relevanceScore;
+    });
   }
   renderJobList();
 };
