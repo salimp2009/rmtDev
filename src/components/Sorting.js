@@ -1,8 +1,10 @@
 import {
+  state,
   sortingEl,
   sortingBtnRecentEl,
   sortingBtnRelevantEl,
 } from "../common.js";
+import renderJobList from "./JobList.js";
 
 const clickHandler = (event) => {
   const clickedBtnEl = event.target.closest(".sorting__button");
@@ -12,10 +14,13 @@ const clickHandler = (event) => {
   const recent = clickedBtnEl.className.includes("--recent") ? true : false;
 
   if (recent) {
-    // sort according to recency
+    state.searchJobItems.sort((current, next) => {
+      return current.daysAgo - next.daysAgo;
+    });
   } else {
-    // sort according relavency
+    return next.relevanceScore - current.relevanceScore;
   }
+  renderJobList();
 };
 
 sortingEl.addEventListener("click", clickHandler);
