@@ -10,8 +10,9 @@ import {
 import renderJobList from "./JobList.js";
 
 const clickHandler = (event) => {
-  console.log(event.target);
   const clickedBtnEl = event.target.closest(".pagination__button");
+  if (!clickedBtnEl) return;
+  const nextPage = clickedBtnEl.className.includes("--next") ? true : false;
 };
 
 paginationEl.addEventListener("click", clickHandler);
