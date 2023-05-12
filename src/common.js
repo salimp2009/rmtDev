@@ -4,6 +4,7 @@ export const DEFAULT_DISPLAY_TIME = 3500;
 //
 export const state = {
   searchJobItems: [],
+  currentPage: 1,
 };
 
 // SELECTORS
