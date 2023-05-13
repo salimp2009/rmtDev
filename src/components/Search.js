@@ -4,6 +4,8 @@ import {
   searchFormEl,
   state,
   jobListSearchEl,
+  paginationBtnBackEl,
+  paginationNumberNextEl,
   numberEl,
   getData,
 } from "../common.js";
@@ -26,6 +28,8 @@ const submitHandler = async (event) => {
   searchInputEl.blur();
   jobListSearchEl.innerHTML = "";
   state.currentPage = 1;
+  paginationBtnBackEl.classList.add("pagination__button--hidden");
+  paginationNumberNextEl.textContent = 2;
 
   renderSpinner("search");
 

@@ -12,11 +12,12 @@ import renderJobList from "./JobList.js";
 const renderPaginationBtns = () => {
   if (state.currentPage >= 2) {
     paginationBtnBackEl.classList.remove("pagination__button--hidden");
-    paginationNumberNextEl.textContent = +state.currentPage;
-    paginationNumberBackEl.textContent = +(state.currentPage - 1);
   } else {
     paginationBtnBackEl.classList.add("pagination__button--hidden");
+    paginationNumberNextEl.textContent = 2;
   }
+  paginationNumberNextEl.textContent = +(state.currentPage + 1);
+  paginationNumberBackEl.textContent = +(state.currentPage - 1);
 };
 
 const clickHandler = (event) => {
