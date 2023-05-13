@@ -16,7 +16,6 @@ import renderJobList from "./JobList.js";
 const submitHandler = async (event) => {
   event.preventDefault();
   const searchText = searchInputEl.value;
-
   const forbiddenExpression = /<[\s\S]*?script[\s\S]*?>/;
   const patternMatch = forbiddenExpression.test(searchText);
   if (patternMatch) {
@@ -26,6 +25,7 @@ const submitHandler = async (event) => {
   }
   searchInputEl.blur();
   jobListSearchEl.innerHTML = "";
+  state.currentPage = 1;
 
   renderSpinner("search");
 

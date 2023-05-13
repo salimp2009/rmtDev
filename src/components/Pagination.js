@@ -10,9 +10,10 @@ import {
 import renderJobList from "./JobList.js";
 
 const clickHandler = (event) => {
-  const clickedBtnEl = event.target.closest(".pagination__button");
-  if (!clickedBtnEl) return;
-  const nextPage = clickedBtnEl.className.includes("--next") ? true : false;
+  const clickedButtonEl = event.target.closest(".pagination__button");
+  if (!clickedButtonEl) return;
+
+  const nextPage = clickedButtonEl.className.includes("--next") ? true : false;
   nextPage ? state.currentPage++ : state.currentPage--;
   renderJobList();
 };
