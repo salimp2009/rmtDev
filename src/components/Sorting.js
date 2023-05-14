@@ -6,11 +6,14 @@ import {
 } from "../common.js";
 import renderJobList from "./JobList.js";
 
+import renderPaginationBtns from "./Pagination.js";
+
 const clickHandler = (event) => {
   const clickedBtnEl = event.target.closest(".sorting__button");
 
   if (!clickedBtnEl) return;
 
+  state.currentPage = 1;
   const recent = clickedBtnEl.className.includes("--recent") ? true : false;
 
   if (recent) {
@@ -30,6 +33,7 @@ const clickHandler = (event) => {
       return next.relevanceScore - current.relevanceScore;
     });
   }
+  renderPaginationBtns();
   renderJobList();
 };
 

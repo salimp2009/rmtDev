@@ -5,6 +5,7 @@ import {
   paginationBtnNextEl,
   paginationNumberBackEl,
   paginationNumberNextEl,
+  RESULTS_PER_PAGE,
 } from "../common.js";
 
 import renderJobList from "./JobList.js";
@@ -16,7 +17,7 @@ const renderPaginationBtns = () => {
     paginationBtnBackEl.classList.add("pagination__button--hidden");
   }
 
-  if (state.currentPage * 7 >= state.searchJobItems.length) {
+  if (state.currentPage * RESULTS_PER_PAGE >= state.searchJobItems.length) {
     paginationBtnNextEl.classList.add("pagination__button--hidden");
   } else {
     paginationBtnNextEl.classList.remove("pagination__button--hidden");
@@ -41,3 +42,5 @@ const clickHandler = (event) => {
 };
 
 paginationEl.addEventListener("click", clickHandler);
+
+export default renderPaginationBtns;
