@@ -6,8 +6,6 @@ import {
   sortingBtnRecentEl,
   sortingBtnRelevantEl,
   jobListSearchEl,
-  paginationBtnBackEl,
-  paginationNumberNextEl,
   numberEl,
   getData,
 } from "../common.js";
@@ -28,6 +26,7 @@ const submitHandler = async (event) => {
     searchInputEl.value = "";
     return;
   }
+
   searchInputEl.blur();
   jobListSearchEl.innerHTML = "";
   sortingBtnRelevantEl.classList.add("sorting__button--active");
