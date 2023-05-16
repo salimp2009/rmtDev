@@ -4,7 +4,7 @@ import renderSpinner from "./Spinner.js";
 import { renderJobDetails } from "./JobDetails.js";
 import renderError from "./Error.js";
 
-const loadHandler = async () => {
+const loadHashChangeHandler = async () => {
   const id = window.location.hash.substring(1);
   if (id) {
     jobDetailsContentEl.innerHTML = "";
@@ -21,4 +21,5 @@ const loadHandler = async () => {
     }
   }
 };
-window.addEventListener("DOMContentLoaded", loadHandler);
+window.addEventListener("DOMContentLoaded", loadHashChangeHandler);
+window.addEventListener("hashchange", loadHashChangeHandler);
