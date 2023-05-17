@@ -7,6 +7,7 @@ export const state = {
   searchJobItems: [],
   currentPage: 1,
   activeJobItem: {},
+  bookMarkedItems: [],
 };
 
 // SELECTORS
