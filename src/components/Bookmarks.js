@@ -8,15 +8,20 @@ import {
 import renderJobList from "./JobList.js";
 
 const clickHandler = (event) => {
-  event.preventDefault();
-  if (event.target.className.includes("bookmark")) {
-    state.bookMarkedItems.push(state.activeJobItem);
-  }
+  // event.preventDefault();
+  if (!event.target.className.includes("bookmark")) return;
+
+  state.bookMarkedItems.push(state.activeJobItem);
+
+  document
+    .querySelector(".job-info__bookmark-icon")
+    .classList.toggle("job-info__bookmark-icon--bookmarked");
 };
 
 const mouseEnterHandler = () => {
   bookmarksBtnEl.classList.add("bookmarks-btn--active");
   jobListBookmarksEl.classList.add("job-list--visible");
+  renderJobList("bookmarks");
 };
 
 const mouseLeaveHandler = () => {
