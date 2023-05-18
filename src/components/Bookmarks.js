@@ -9,7 +9,7 @@ import renderJobList from "./JobList.js";
 
 const clickHandler = (event) => {
   event.preventDefault();
-  if (event.target.classList.contains("job-info__bookmark-btn")) {
+  if (event.target.className.includes("bookmark")) {
     state.bookMarkedItems.push(state.activeJobItem);
   }
 };
