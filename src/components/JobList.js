@@ -70,8 +70,10 @@ const clickHandler = async (event) => {
 
   // ? operator makes it the following item as optional like a if-check
   document
-    .querySelector(".job-item--active")
-    ?.classList.remove("job-item--active");
+    .querySelectorAll(".job-item--active")
+    .forEach((activejobItem) =>
+      activejobItem.classList.remove("job-item--active")
+    );
 
   jobItemEl.classList.add("job-item--active");
   jobDetailsContentEl.innerHTML = "";

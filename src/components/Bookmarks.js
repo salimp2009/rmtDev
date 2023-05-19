@@ -11,7 +11,17 @@ const clickHandler = (event) => {
   // event.preventDefault();
   if (!event.target.className.includes("bookmark")) return;
 
-  state.bookMarkedItems.push(state.activeJobItem);
+  if (
+    state.bookMarkedItems.some(
+      (jobItem) => jobItem.id === state.activeJobItem.id
+    )
+  ) {
+    state.bookMarkedItems = state.bookMarkedItems.filter(
+      (bookMarkedjobItem) => bookMarkedjobItem.id !== state.activeJobItem.id
+    );
+  } else {
+    state.bookMarkedItems.push(state.activeJobItem);
+  }
 
   document
     .querySelector(".job-info__bookmark-icon")
