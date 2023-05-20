@@ -23,6 +23,11 @@ const clickHandler = (event) => {
     state.bookMarkedItems.push(state.activeJobItem);
   }
 
+  localStorage.setItem(
+    "bookmarkJobItems",
+    JSON.stringify(state.bookMarkedItems)
+  );
+
   document
     .querySelector(".job-info__bookmark-icon")
     .classList.toggle("job-info__bookmark-icon--bookmarked");
