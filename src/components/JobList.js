@@ -51,7 +51,11 @@ const renderJobList = (whichJobList = "search") => {
             </div>
           </div>
             <div class="job-item__right">
-            <i class="fa-solid fa-bookmark job-item__bookmark-icon"></i>
+            <i class="fa-solid fa-bookmark job-item__bookmark-icon ${
+              state.bookMarkedItems.some(
+                (bookmarkJobItem) => bookmarkJobItem.id === jobItem.id
+              ) && "job-item__bookmark-icon--bookmarked"
+            }"></i>
             <time class="job-item__time">${jobItem.daysAgo}d</time>
             </div>
         </a>
@@ -82,9 +86,8 @@ const clickHandler = async (event) => {
 
   const id = jobItemEl.children[0].getAttribute("href");
 
-  state.activeJobItem = state.searchJobItems.find(
-    (jobItem) => jobItem.id === +id
-  );
+  const allJobItems = [...state.searchJobItems, ...state.bookMarkedItems];
+  state.activeJobItem = allJobItems.find((jobItem) => jobItem.id === +id);
 
   history.pushState(null, "", `/#${id}`);
 
