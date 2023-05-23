@@ -73,13 +73,13 @@ const clickHandler = async (event) => {
   const jobItemEl = event.target.closest(".job-item");
 
   // ? operator makes it the following item as optional like a if-check
+  // remove the active class from prev. active job items
   document
     .querySelectorAll(".job-item--active")
     .forEach((activejobItem) =>
       activejobItem.classList.remove("job-item--active")
     );
 
-  jobItemEl.classList.add("job-item--active");
   jobDetailsContentEl.innerHTML = "";
 
   renderSpinner("job-details");
@@ -88,6 +88,8 @@ const clickHandler = async (event) => {
 
   const allJobItems = [...state.searchJobItems, ...state.bookMarkedItems];
   state.activeJobItem = allJobItems.find((jobItem) => jobItem.id === +id);
+
+  renderJobList("search");
 
   history.pushState(null, "", `/#${id}`);
 
