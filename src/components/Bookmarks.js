@@ -4,7 +4,6 @@ import {
   jobListBookmarksEl,
   jobDetailsEl,
 } from "../common.js";
-
 import renderJobList from "./JobList.js";
 
 const clickHandler = (event) => {
@@ -13,11 +12,11 @@ const clickHandler = (event) => {
 
   if (
     state.bookMarkedItems.some(
-      (jobItem) => jobItem.id === state.activeJobItem.id
+      (jobItem) => jobItem.id === state.activeJobItem.id,
     )
   ) {
     state.bookMarkedItems = state.bookMarkedItems.filter(
-      (bookMarkedjobItem) => bookMarkedjobItem.id !== state.activeJobItem.id
+      (bookMarkedjobItem) => bookMarkedjobItem.id !== state.activeJobItem.id,
     );
   } else {
     state.bookMarkedItems.push(state.activeJobItem);
@@ -25,7 +24,7 @@ const clickHandler = (event) => {
 
   localStorage.setItem(
     "bookmarkJobItems",
-    JSON.stringify(state.bookMarkedItems)
+    JSON.stringify(state.bookMarkedItems),
   );
 
   document

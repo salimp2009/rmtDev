@@ -15,4 +15,4 @@ toc.enable = true # Enable/disable "Table of Contents" code action
 # * "file-stem" to complete using file name without an extension,
 # * "file-path-stem" same as above but using wil path.
 wiki.style = "title-slug"
-wiki.style = "title-slug"
+# wiki.style = "title-slug"

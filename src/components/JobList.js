@@ -7,7 +7,6 @@ import {
   RESULTS_PER_PAGE,
   jobListBookmarksEl,
 } from "../common.js";
-
 import renderSpinner from "./Spinner.js";
 import { renderJobDetails } from "./JobDetails.js";
 import renderError from "./Error.js";
@@ -22,7 +21,7 @@ const renderJobList = (whichJobList = "search") => {
   if (whichJobList === "search") {
     jobItems = state.searchJobItems.slice(
       (state.currentPage - 1) * RESULTS_PER_PAGE,
-      state.currentPage * RESULTS_PER_PAGE
+      state.currentPage * RESULTS_PER_PAGE,
     );
   } else if (whichJobList === "bookmarks") {
     jobItems = state.bookMarkedItems;
@@ -53,7 +52,7 @@ const renderJobList = (whichJobList = "search") => {
             <div class="job-item__right">
             <i class="fa-solid fa-bookmark job-item__bookmark-icon ${
               state.bookMarkedItems.some(
-                (bookmarkJobItem) => bookmarkJobItem.id === jobItem.id
+                (bookmarkJobItem) => bookmarkJobItem.id === jobItem.id,
               ) && "job-item__bookmark-icon--bookmarked"
             }"></i>
             <time class="job-item__time">${jobItem.daysAgo}d</time>
@@ -77,7 +76,7 @@ const clickHandler = async (event) => {
   document
     .querySelectorAll(".job-item--active")
     .forEach((activejobItem) =>
-      activejobItem.classList.remove("job-item--active")
+      activejobItem.classList.remove("job-item--active"),
     );
 
   jobDetailsContentEl.innerHTML = "";
